@@ -158,9 +158,9 @@ add_http() {
   os="$(uname -s)"
   status="Enabled"
   if [[ "$ext" =~ ^(pecl_http|http)$ ]]; then
-    add_http_latest "$os" >/dev/null 2>&1
+    add_http_latest "$os" 
   else
-    add_http_version "$ext" "$os" >/dev/null 2>&1
+    add_http_version "$ext" "$os" 
   fi
   add_extension_log "http" "$status"
 }

@@ -40,12 +40,12 @@ add_geos_helper() {
 # Function to add geos
 add_geos() {
   geos_tag='1.0.0'
-  add_geos_libs >/dev/null 2>&1
+  add_geos_libs 
   enable_extension "geos" "extension"
   if check_extension "geos"; then
     add_log "${tick:?}" "geos" "Enabled"
   else
-    add_geos_helper >/dev/null 2>&1
+    add_geos_helper 
     add_extension_log "geos" "Installed and enabled"
   fi
 }

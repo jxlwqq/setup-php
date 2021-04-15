@@ -30,16 +30,16 @@ add_firebird() {
     if [ "$(uname -s)" = "Linux" ]; then
       if [[ "${version:?}" =~ 5.3|${nightly_versions:?} ]]; then
         lib_arch=$(gcc -dumpmachine)
-        install_packages firebird-dev >/dev/null 2>&1
-        sudo ln -sf /usr/lib/"$lib_arch"/libfbclient.so.2 /usr/lib/libfbclient.so >/dev/null 2>&1
-        sudo ln -sf /usr/lib/"$lib_arch"/libib_util.so /usr/lib/ >/dev/null 2>&1
-        add_firebird_helper /usr >/dev/null 2>&1
+        install_packages firebird-dev 
+        sudo ln -sf /usr/lib/"$lib_arch"/libfbclient.so.2 /usr/lib/libfbclient.so 
+        sudo ln -sf /usr/lib/"$lib_arch"/libib_util.so /usr/lib/ 
+        add_firebird_helper /usr 
       else
-        add_pdo_extension firebird >/dev/null 2>&1
+        add_pdo_extension firebird 
       fi
     else
-      add_firebird_client_darwin >/dev/null 2>&1
-      add_firebird_helper /opt/firebird >/dev/null 2>&1
+      add_firebird_client_darwin 
+      add_firebird_helper /opt/firebird 
     fi
     add_extension_log pdo_firebird "Installed and enabled"
   fi
